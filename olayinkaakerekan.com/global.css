@@ -1,0 +1,101 @@
+:root {
+	--nav-height: 80px;
+}
+
+html {
+	font-size: 14px;
+	scroll-behavior: smooth;
+}
+
+html[data-theme='dark'] {
+	--white: #000;
+	--black: #fff;
+	--grey: #333;
+	--grey-alt: rgba(10, 10, 10, 0.7);
+	--white-overlay: rgba(0, 0, 0, 0.5);
+	--black-link-overlay: rgba(255, 255, 255, 0.2);
+}
+
+html[data-theme='light'] {
+	--white: #fff;
+	--black: #000;
+	--grey: #eaeaea;
+	--grey-alt: #fafbfc;
+	--white-overlay: rgba(255, 255, 255, 0.5);
+	--black-link-overlay: rgba(0, 0, 0, 0.2);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: var(--black);
+	background-color: var(--white);
+	transition: all 0.3s;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	font-size: 1.125rem;
+}
+
+a {
+	color: var(--black);
+	text-decoration: none;
+	position: relative;
+}
+
+a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 40%;
+	width: 100%;
+	transition: height linear 0.3s;
+	background-color: var(--black-link-overlay);
+}
+
+a:hover::after {
+	height: 100%;
+}
+
+a:focus::after {
+	height: 0%;
+}
+
+a:focus {
+	border: 1px solid var(--black);
+	border-radius: 5px;
+	outline: none;
+}
+
+::selection {
+	background: var(--black);
+	color: var(--white);
+}
+
+/* Using the "Major Second" typescale */
+h1 {
+	font-size: 1.802rem;
+}
+h2 {
+	font-size: 1.602rem;
+}
+h3 {
+	font-size: 1.424rem;
+}
+h4 {
+	font-size: 1.266rem;
+}
+h5 {
+	font-size: 1.125rem;
+}
+h6 {
+	font-size: 1rem;
+}

@@ -1,0 +1,162 @@
+.magic-button-wrapper {
+	 --background: #740ba1;
+   --loading: #ccc;
+	 --icon-color: #414856;
+	 --shape-color-01: #b8cbee;
+	 --shape-color-02: #7691e8;
+	 --shape-color-03: #fdd053;
+	 --width: 30px;
+	 --height: 30px;
+	 --border-radius: var(--height);
+	 width: var(--width);
+	 height: var(--height);
+	 position: relative;
+	 border-radius: var(--border-radius);
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+
+ .magic-button-wrapper .magicBtn {
+	 background: var(--background);
+	 width: var(--width);
+	 height: var(--height);
+	 position: relative;
+	 z-index: 3;
+	 border-radius: var(--border-radius);
+	 box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+   color: white;
+   font-size: 18px;
+}
+
+ .magic-button-wrapper .tooltip {
+	 width: 30px;
+	 height: 30px;
+   color: #000;
+	 border-radius: 30px;
+	 position: absolute;
+	 background: #fff;
+	 z-index: 2;
+	 padding: 0 15px;
+	 box-shadow: 0 12px 48px 0 rgb(109 117 141 / 20%);
+	 opacity: 0;
+	 top: 0;
+	 display: flex;
+	 justify-content: space-around;
+	 align-items: center;
+	 transition: opacity 0.15s ease-in, top 0.15s ease-in, width 0.15s ease-in;
+}
+
+ .magic-button-wrapper .tooltip::after {
+	 content: "";
+	 width: 20px;
+	 height: 20px;
+	 background: #fff;
+	 border-radius: 3px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: -10px;
+	 bottom: -8px;
+	 transform: rotate(45deg);
+	 z-index: -1;
+}
+
+ .magic-button-wrapper > svg {
+	 width: 200px;
+	 height: 200px;
+	 position: absolute;
+	 z-index: 1;
+	 transform: scale(0);
+}
+
+ .magic-button-wrapper > svg .shape {
+	 fill: none;
+	 stroke: none;
+	 stroke-width: 3px;
+	 stroke-linecap: round;
+	 stroke-linejoin: round;
+	 transform-origin: 50% 20%;
+}
+ .magic-button-wrapper .magic-button {
+	 height: 100%;
+	 width: 100%;
+	 border-radius: var(--border-radius);
+	 cursor: pointer;
+	 position: absolute;
+	 z-index: 5;
+	 opacity: 0;
+}
+ .magic-button-wrapper .isSuccess ~ svg {
+	 animation: pang-animation 1.2s ease-out forwards;
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(1) {
+	 transform: translate(-11px, 30%) rotate(40deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(2) {
+	 transform: translate(1px, 30%) rotate(80deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(3) {
+	 transform: translate(-16px, 30%) rotate(120deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(4) {
+	 transform: translate(4px, 30%) rotate(160deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(5) {
+	 transform: translate(9px, 30%) rotate(200deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(6) {
+	 transform: translate(7px, 30%) rotate(240deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(7) {
+	 transform: translate(25px, 30%) rotate(280deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(8) {
+	 transform: translate(-8px, 30%) rotate(320deg);
+}
+ .magic-button-wrapper .isSuccess ~ svg .shape:nth-of-type(9) {
+	 transform: translate(-12px, 30%) rotate(360deg);
+}
+
+ .magic-button-wrapper .isError ~ .tooltip {
+	 min-width: 230px;
+	 min-height: 100px;
+	 animation: stretch-animation 1s ease-out forwards 0.15s;
+	 top: -115px;
+	 opacity: 1;
+}
+
+ @keyframes pang-animation {
+	 0% {
+		 transform: scale(0);
+		 opacity: 0;
+	}
+	 40% {
+		 transform: scale(1);
+		 opacity: 1;
+	}
+	 100% {
+		 transform: scale(1.1);
+		 opacity: 0;
+	}
+}
+
+ @keyframes stretch-animation {
+	 0% {
+		 transform: scale(1, 1);
+	}
+	 10% {
+		 transform: scale(1.1, 0.9);
+	}
+	 30% {
+		 transform: scale(0.9, 1.1);
+	}
+	 50% {
+		 transform: scale(1.05, 0.95);
+	}
+	 100% {
+		 transform: scale(1, 1);
+	}
+}
